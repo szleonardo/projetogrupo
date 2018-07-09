@@ -1,0 +1,31 @@
+:host {   
+    min-width: 100% !important;
+    height: 100% !important;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    position: fixed;
+}
+
+mat-expansion-panel {
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #434c55;
+}
+mat-sidenav {
+    min-width: 100% !important;
+    min-height: 100%;
+ 
+}
+mat-list-item a{
+    text-decoration:none; 
+    color: #fff;
+    transition: 0.3s;
+}
+mat-list-item a:hover{
+    color: dodgerblue;
+    transition: 0.3s;
+}
+mat-panel-title{
+    color: #fff
+}

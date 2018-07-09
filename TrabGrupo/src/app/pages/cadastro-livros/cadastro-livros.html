@@ -1,0 +1,80 @@
+<form [formGroup]="formGroup">  
+    <mat-card fxLayout="column">
+    <mat-card-title>
+        Cadastro de Livros
+    </mat-card-title>
+
+    <mat-card-content fxFlex="100%">
+        <div fxLayout="column">
+            <div fxLayout="row" >
+                    <mat-form-field fxFlex="50%">
+                        <input matInput type="text" 
+                            [(ngModel)]="livros.titulo"
+                            placeholder="Titulo"
+                            formControlName="titulo">
+                            <mat-error align="start"
+                                *ngIf="formGroup.controls['titulo'].hasError('required')" >
+                                Campo obrigatório</mat-error>
+                    </mat-form-field>
+                    <span fxFlex="2%"></span>
+                    <mat-form-field fxFlex="50%">
+                        <input matInput type="text" 
+                            [(ngModel)]="livros.editora"
+                            placeholder="Editora"
+                            formControlName="editora"  required>
+                        <mat-error align="start"
+                                *ngIf="formGroup.controls['editora'].hasError('required')" >
+                                Campo obrigatório</mat-error>
+                    </mat-form-field>
+            </div>
+            <div fxLayout="row" >
+                    <mat-form-field fxFlex="50%">
+                        <input matInput type="text" 
+                            [(ngModel)]="livros.edicao"
+                            placeholder="Edição"
+                            formControlName="edicao">
+                            <mat-error align="start"
+                                *ngIf="formGroup.controls['edicao'].hasError('required')" >
+                                Campo obrigatório</mat-error>
+                    </mat-form-field>
+                    <span fxFlex="2%"></span>
+
+                    <mat-form-field fxFlex="50%">
+                        <input matInput type="text" 
+                            [(ngModel)]="livros.anoPublicacao"
+                            placeholder="Ano de Publicação"
+                            formControlName="anoPublicacao"  required>
+                        <mat-error align="start"
+                                *ngIf="formGroup.controls['anoPublicacao'].hasError('required')" >
+                                Campo obrigatório</mat-error>
+                    </mat-form-field>
+            </div>
+            <div fxLayout="row" >
+                    <mat-form-field fxFlex="50%">
+                        <input matInput type="text" 
+                            [(ngModel)]="livros.autor"
+                            placeholder="Autor"
+                            formControlName="autor" required>
+                            <mat-error align="start"
+                                *ngIf="formGroup.controls['autor'].hasError('required')" >
+                                Campo obrigatório</mat-error>
+                    </mat-form-field>
+                    <span fxFlex="2%"></span>
+                    <mat-form-field fxFlex="50%">
+                        <input matInput type="text" 
+                            [(ngModel)]="livros.assunto"
+                            placeholder="Assunto"
+                            formControlName="assunto"  required>
+                        <mat-error align="start"
+                                *ngIf="formGroup.controls['assunto'].hasError('required')" >
+                                Campo obrigatório</mat-error>
+                    </mat-form-field>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button color="#efefef"  [disabled]="formGroup.invalid" (click)="salvar()" mat-button>Salvar</button>
+    </mat-card-actions>
+
+</mat-card>
+</form>

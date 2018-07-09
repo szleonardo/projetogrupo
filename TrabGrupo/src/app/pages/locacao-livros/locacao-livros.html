@@ -1,0 +1,69 @@
+<form [formGroup]="formGroup">  
+    <mat-card fxLayout="column">
+    <mat-card-title>
+        Locação de Livros
+    </mat-card-title>
+
+    <mat-card-content fxFlex="100%">
+        <div fxLayout="column">
+            <div fxLayout="row" >
+                    <mat-form-field fxFlex="50%">
+                        <input matInput type="text" 
+                            [(ngModel)]="locacao.idLivro"
+                            placeholder="(ID) Livro"
+                            formControlName="idLivro">
+                            <mat-error align="start"
+                                *ngIf="formGroup.controls['idLivro'].hasError('required')" >
+                                Campo obrigatório</mat-error>
+                    </mat-form-field>
+                    <span fxFlex="2%"></span>
+                    <mat-form-field fxFlex="50%">
+                        <input matInput type="text" 
+                            [(ngModel)]="locacao.nomeAluno"
+                            placeholder="Nome do Aluno"
+                            formControlName="nomeAluno"  required>
+                        <mat-error align="start"
+                                *ngIf="formGroup.controls['nomeAluno'].hasError('required')" >
+                                Campo obrigatório</mat-error>
+                    </mat-form-field>
+            </div>
+            <div fxLayout="row" >
+                <mat-form-field fxFlex="32%">
+                    <input matInput type="text" 
+                        [(ngModel)]="locacao.datLocacao"
+                        placeholder="Data de Locação"
+                        formControlName="datLocacao">
+                        <mat-error align="start"
+                            *ngIf="formGroup.controls['datLocacao'].hasError('required')" >
+                            Campo obrigatório</mat-error>
+                </mat-form-field>
+                <span fxFlex="2%"></span>
+                <mat-form-field fxFlex="32%">
+                    <input matInput type="text" 
+                        [(ngModel)]="locacao.datDevolucao"
+                        placeholder="Data de Devolução"
+                        formControlName="datDevolucao"  required>
+                    <mat-error align="start"
+                            *ngIf="formGroup.controls['datDevolucao'].hasError('required')" >
+                            Campo obrigatório</mat-error>
+                </mat-form-field>
+                <span fxFlex="2%"></span>
+                <mat-form-field fxFlex="32%">
+                    <input matInput type="text" 
+                        [(ngModel)]="locacao.valor"
+                        placeholder="Valor"
+                        formControlName="valor"  required>
+                    <mat-error align="start"
+                            *ngIf="formGroup.controls['valor'].hasError('required')" >
+                            Campo obrigatório</mat-error>
+                </mat-form-field>
+        </div>
+
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button color="#efefef"  [disabled]="formGroup.invalid" (click)="salvar()" mat-button>Salvar</button>
+    </mat-card-actions>
+
+</mat-card>
+</form>

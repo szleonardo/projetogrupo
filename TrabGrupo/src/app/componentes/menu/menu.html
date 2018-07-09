@@ -1,0 +1,30 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+        Menu de Navegação
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+        <mat-list-item> 
+            <a [routerLink]="['/','cadastrar-alunos' ]">
+                Cadastrar Alunos
+            </a>
+        </mat-list-item>
+        <mat-list-item> 
+            <a [routerLink]="['/','cadastrar-livros' ]">
+                Cadastrar Livros
+            </a>
+        </mat-list-item>
+        <mat-list-item> 
+            <a [routerLink]="['/','locacao-livros' ]">
+                Locação de Livros
+            </a>
+        </mat-list-item>
+        <mat-list-item> 
+            <a [routerLink]="['/','consulta-livros' ]">
+                 Consulta de Livros
+            </a>
+        </mat-list-item>
+    </mat-list>
+
+</mat-expansion-panel>

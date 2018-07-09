@@ -1,0 +1,19 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+*{padding: 0; margin: 0;}
+body{
+    background: #fff;
+}
+app-root {
+    min-width: 100%;
+    min-height: 100%;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    position: absolute;
+    background-color: #efefef;
+}
+.container{
+    background-color: #fff;
+}

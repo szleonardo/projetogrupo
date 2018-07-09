@@ -1,0 +1,60 @@
+CREATE TABLE login(
+    id integer NOT NULL,
+    nome character varying(100) COLLATE pg_catalog."default",
+    usuario character varying(30) COLLATE pg_catalog."default",
+    senha character varying(30) COLLATE pg_catalog."default",
+    nivel character varying(1) COLLATE pg_catalog."default",
+    CONSTRAINT login_pkey PRIMARY KEY (id)
+)
+
+CREATE TABLE loc_livros(
+    id integer NOT NULL,
+    idlivro integer,
+    idaluno integer,
+    datlocacao date,
+    datdevolucao date,
+    valor character varying(10) COLLATE pg_catalog."default",
+    CONSTRAINT loc_livros_pkey PRIMARY KEY (id),
+    CONSTRAINT loc_livros_idaluno_fkey FOREIGN KEY (idaluno)
+        REFERENCES public.cad_aluno (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT loc_livros_idlivro_fkey FOREIGN KEY (idlivro)
+        REFERENCES public.cad_livro (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+CREATE TABLE cad_livro(
+    id integer NOT NULL,
+    titulo character varying(100) COLLATE pg_catalog."default",
+    editora character varying(100) COLLATE pg_catalog."default",
+    edicao character varying(100) COLLATE pg_catalog."default",
+    anopublicacao date,
+    autor character varying(100) COLLATE pg_catalog."default",
+    assunto character varying(100) COLLATE pg_catalog."default",
+    CONSTRAINT cad_livro_pkey PRIMARY KEY (id)
+)
+
+CREATE TABLE cad_aluno(
+    id integer NOT NULL,
+    nome character varying(100) COLLATE pg_catalog."default",
+    rg character varying(20) COLLATE pg_catalog."default",
+    cpf character varying(20) COLLATE pg_catalog."default",
+    curso character varying(100) COLLATE pg_catalog."default",
+    ano character varying(50) COLLATE pg_catalog."default",
+    datmatricula date,
+    datvalidade date,
+    CONSTRAINT cad_aluno_pkey PRIMARY KEY (id)
+)
+
+CREATE OR REPLACE VIEW locacaolivros AS
+ SELECT loc.id,
+    al.nome,
+    li.titulo,
+    loc.datlocacao,
+    loc.datdevolucao,
+    loc.valor
+   FROM loc_livros loc
+     JOIN cad_aluno al ON loc.idaluno = al.id
+     JOIN cad_livro li ON loc.idlivro = li.id;

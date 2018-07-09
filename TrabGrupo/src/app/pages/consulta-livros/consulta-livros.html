@@ -1,0 +1,42 @@
+<form [formGroup]="formGroup">  
+    <mat-card fxLayout="column">
+        <mat-card-title>
+            Consulta de Livros
+        </mat-card-title>
+    
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+               
+                <mat-panel-description>
+                    Jesus é ET?
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p style="color: forestgreen">Status.: Disponivel</p>
+                <p>Editora: Jdoug Produciones</p>
+                <p>Edição.: Juninho BOY</p>
+                <p>Ano.....: 03/05/2016</p>
+                <p>Autor...: MC Bin Laden</p>
+                <p>Assunto: Religião</p>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+               
+                <mat-panel-description>
+                    Guia de Viagem
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p style="color: red">Status.: Indisponivel</p>
+                <p>Editora: Sampaio</p>
+                <p>Edição.: Pinóquio</p>
+                <p>Ano.....: 22/04/2012</p>
+                <p>Autor...: Zezé Lucinda</p>
+                <p>Assunto: Viagem</p>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card>
+</form>
